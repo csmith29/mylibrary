@@ -1,0 +1,254 @@
+
+package mylibrary;
+
+import jm.JMC;
+import jm.music.data.*;
+import jm.util.*;
+
+/**
+ * This contains a bunch of methods for quickly playing, writing to .mid, or
+ * notating an array of pitches, using the jMusic library.
+ * @author csmith18
+ */
+public class JMusicQuick implements JMC {
+    /**
+     * Just takes the pitches; uses piano and an eighth note.
+     * @param pitchArray
+     * @return s is a jMusic score.
+     */
+    public static Score score(int[] pitchArray) {
+        Score s = new Score();
+        Part p = new Part(PIANO);
+        Phrase phr = new Phrase();
+        phr.addNoteList(pitchArray, 0.5);
+        p.addPhrase(phr);
+        s.addPart(p);
+        return s;
+    } //score(int[])
+    
+    public static void play(int[] pitchArray) {
+        Play.midi(score(pitchArray));
+    } //play(int[])
+    
+    public static void write(int[] pitchArray) {
+        Write.midi(score(pitchArray), "thisScore.mid");
+    } //write(int[])
+    
+    public static void write(int[] pitchArray, String title) {
+        Write.midi(score(pitchArray), title + ".mid");
+    } //write(int[], String)
+    
+    public static void notate(int[] pitchArray) {
+        View.notate(score(pitchArray));
+    } //notate(int[])
+    
+    /**
+     * Takes pitches and instrument; uses an eighth note.
+     * @param pitchArray
+     * @param instrument
+     * @return s is a jMusic score.
+     */
+    public static Score score(int[] pitchArray, int instrument) {
+        Score s = new Score();
+        Part p = new Part(instrument);
+        Phrase phr = new Phrase();
+        phr.addNoteList(pitchArray, 0.5);
+        p.addPhrase(phr);
+        s.addPart(p);
+        return s;
+    } //score(int[], int)
+    
+    public static void play(int[] pitchArray, int instrument) {
+        Play.midi(score(pitchArray, instrument));
+    } //play(int[], int)
+    
+    public static void write(int[] pitchArray, int instrument) {
+        Write.midi(score(pitchArray, instrument), "thisScore.mid");
+    } //write(int[], int)
+    
+    public static void write(int[] pitchArray, int instrument, String title) {
+        Write.midi(score(pitchArray, instrument), title + ".mid");
+    } //write(int[], int, String)
+    
+    /**
+     * Takes pitches and a duration(beat). Uses piano.
+     * @param pitchArray
+     * @param beat
+     * @return s is a jMusic score.
+     */
+    public static Score score(int[] pitchArray, double beat) {
+        Score s = new Score();
+        Part p = new Part(PIANO);
+        Phrase phr = new Phrase();
+        phr.addNoteList(pitchArray, beat);
+        p.addPhrase(phr);
+        s.addPart(p);
+        return s;
+    } //score(int[], double)
+    
+    public static void play(int[] pitchArray, double beat) {
+        Play.midi(score(pitchArray, beat));
+    } //play(int[], double)
+    
+    public static void write(int[] pitchArray, double beat) {
+        Write.midi(score(pitchArray, beat), "thisScore.mid");
+    } //write(int[], double)
+    
+    public static void write(int[] pitchArray, double beat, String title) {
+        Write.midi(score(pitchArray, beat), title + ".mid");
+    } //write(int[], double, String)
+    
+    public static void notate(int[] pitchArray, double beat) {
+        View.notate(score(pitchArray, beat));
+    } //notate(int[], double)
+    
+    /**
+     * Takes pitches, a duration(beat), and instrument.
+     * @param pitchArray
+     * @param beat
+     * @param instrument
+     * @return s is a jMusic score.
+     */
+    public static Score score(int[] pitchArray, double beat, int instrument) {
+        Score s = new Score();
+        Part p = new Part(instrument);
+        Phrase phr = new Phrase();
+        phr.addNoteList(pitchArray, beat);
+        p.addPhrase(phr);
+        s.addPart(p);
+        return s;
+    } //score(int[], double, int)
+    
+    public static void play(int[] pitchArray, double beat, int instrument) {
+        Play.midi(score(pitchArray, beat, instrument));
+    } //play(int[], double, int)
+    
+    public static void write(int[] pitchArray, double beat, int instrument) {
+        Write.midi(score(pitchArray, beat, instrument), "thisScore.mid");
+    } //write(int[], double, int)
+    
+    public static void write(int[] pitchArray, double beat, int instrument, String title) {
+        Write.midi(score(pitchArray, beat, instrument), title + ".mid");
+    } //write(int[], double, int, String)
+    
+    /**
+     * Takes pitches and rhythms. Uses piano.
+     * @param pitchArray
+     * @param rhythmArray
+     * @return s is a jMusic score.
+     */
+    public static Score score(int[] pitchArray, double[] rhythmArray) {
+        Score s = new Score();
+        Part p = new Part(PIANO);
+        Phrase phr = new Phrase();
+        phr.addNoteList(pitchArray, rhythmArray);
+        p.addPhrase(phr);
+        s.addPart(p);
+        return s;
+    } //score(int[], double[])
+    
+    public static void play(int[] pitchArray, double[] rhythmArray) {
+        Play.midi(score(pitchArray, rhythmArray));
+    } //play(int[], double[])
+    
+    public static void write(int[] pitchArray, double[] rhythmArray) {
+        Write.midi(score(pitchArray, rhythmArray), "thisScore.mid");
+    } //write(int[], double[])
+    
+    public static void write(int[] pitchArray, double[] rhythmArray, String title) {
+        Write.midi(score(pitchArray, rhythmArray), title + ".mid");
+    } //write(int[], double[], String)
+    
+    public static void notate(int[] pitchArray, double[] rhythmArray) {
+        View.notate(score(pitchArray, rhythmArray));
+    } //notate(int[], double[])
+    
+    /**
+     * Takes pitches, rhythms, and instrument.
+     * @param pitchArray
+     * @param rhythmArray
+     * @param instrument
+     * @return s is a jMusic score.
+     */
+    public static Score score(int[] pitchArray, double[] rhythmArray, int instrument) {
+        Score s = new Score();
+        Part p = new Part(instrument);
+        Phrase phr = new Phrase();
+        phr.addNoteList(pitchArray, rhythmArray);
+        p.addPhrase(phr);
+        s.addPart(p);
+        return s;
+    } //score(int[], double[], int)
+    
+    public static void play(int[] pitchArray, double[] rhythmArray, int instrument) {
+        Play.midi(score(pitchArray, rhythmArray, instrument));
+    } //play(int[], double[], int)
+    
+    public static void write(int[] pitchArray, double[] rhythmArray, int instrument) {
+        Write.midi(score(pitchArray, rhythmArray, instrument), "thisScore.mid");
+    } //write(int[], double[], int)
+    
+     public static void write(int[] pitchArray, double[] rhythmArray, int instrument, String title) {
+        Write.midi(score(pitchArray, rhythmArray, instrument), title + ".mid");
+    } //write(int[], double[], int, String)
+    
+    /**
+     * Takes pitches, rhythms, and a tempo(bpm). Uses piano.
+     * @param pitchArray
+     * @param rhythmArray
+     * @param bpm
+     * @return s is a jMusic score.
+     */
+    public static Score score(int[] pitchArray, double[] rhythmArray, double bpm) {
+        Score s = new Score(bpm);
+        Part p = new Part(PIANO);
+        Phrase phr = new Phrase();
+        phr.addNoteList(pitchArray, rhythmArray);
+        p.addPhrase(phr);
+        s.addPart(p);
+        return s;
+    } //score(int[], double[], double)
+    
+    public static void play(int[] pitchArray, double[] rhythmArray, double bpm) {
+        Play.midi(score(pitchArray, rhythmArray, bpm));
+    } //play(int[], double[], double)
+    
+    public static void write(int[] pitchArray, double[] rhythmArray, double bpm) {
+        Write.midi(score(pitchArray, rhythmArray, bpm), "thisScore.mid");
+    } //write(int[], double[], double)
+    
+    public static void write(int[] pitchArray, double[] rhythmArray, double bpm, String title) {
+        Write.midi(score(pitchArray, rhythmArray, bpm), title + ".mid");
+    } //write(int[], double[], double, String)
+    
+    /**
+     * Takes pitches, rhythms, tempo(bpm), and instrument.
+     * @param pitchArray
+     * @param rhythmArray
+     * @param bpm
+     * @param instrument
+     * @return s is a jMusic score.
+     */
+    public static Score score(int[] pitchArray, double[] rhythmArray, double bpm, int instrument) {
+        Score s = new Score(bpm);
+        Part p = new Part(instrument);
+        Phrase phr = new Phrase();
+        phr.addNoteList(pitchArray, rhythmArray);
+        p.addPhrase(phr);
+        s.addPart(p);
+        return s;
+    } //score(int[], double[], double, int)
+    
+    public static void play(int[] pitchArray, double[] rhythmArray, double bpm, int instrument) {
+        Play.midi(score(pitchArray, rhythmArray, bpm, instrument));
+    } //play(int[], double[], double, int)
+    
+    public static void write(int[] pitchArray, double[] rhythmArray, double bpm, int instrument) {
+        Write.midi(score(pitchArray, rhythmArray, bpm, instrument), "thisScore.mid");
+    } //write(int[], double[], double, int)
+    
+    public static void write(int[] pitchArray, double[] rhythmArray, double bpm, int instrument, String title) {
+        Write.midi(score(pitchArray, rhythmArray, bpm, instrument), title + ".mid");
+    } //write(int[], double[], double, int, String)
+    
+} //JMusicQuick
