@@ -1,0 +1,25 @@
+public class Operations {
+    
+    public static int mod(int a, int b) {
+        int remainder = a%b;
+        if (remainder < 0) remainder += b;
+        return remainder;
+    } //mod(int, int)
+    
+    public static boolean isEven(int a) {
+        return mod(a, 2) == 0;
+    } //isEven(int)
+    
+    public static boolean isOdd(int a) {
+        return mod(a, 2) == 1;
+    } //isOdd(int)
+    
+    public static double average(int[] data) {
+        int sum = 0;
+        for (int i = 0; i < data.length; i++) {
+            sum += data[i];
+        } // for i
+        return (double)sum/(double)data.length;
+    } //average(int[])
+    
+} //Operations
